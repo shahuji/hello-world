@@ -1,0 +1,92 @@
+1. String and Inbuilt function
+    => Note: All string methods returns new values. They do not change the original string.
+       capitalize() Converts the first character to upper case
+       casefold()	Converts string into lower case
+       center()	Returns a centered string
+       count()	Returns the number of times a specified value occurs in a string
+
+2. List and boolean Variables Inbuilt functions
+    clear(), copy(), pop(), remove(), insert(position, value), append(), sort()
+
+3. Sets- Inbuilt functions
+    Note: It not allow duplicate value/elements
+    add()	Adds an element to the set
+    clear()	Removes all the elements from the set
+    copy()	Returns a copy of the set
+    difference()	Returns a set containing the difference between two or more sets
+    pop()	Removes an element from the set
+    remove()	Removes the specified element
+
+4. Dictionaries- Inbuilt functions
+    Note: No duplicate keys, but value can be.
+    clear(), copy(), fromkeys(), get()- return only all key, values()- return only all values, keys(), pop(), popitem(), update()
+    setdefault()	Returns the value of the specified key. If the key does not exist: insert the key,
+                    with the specified value
+    items()	Returns a list containing a tuple for each key value pair
+
+5. Tuples- Inbuilt functions
+    Note: Tuples are immutable, self cause fixed size variable.
+    del tuplename- to delete entire tuple
+    count()- return no of occurrence of specific element
+    len(tuplename)- get tuple length
+    min(), max()- get min, max value
+
+6. Functions in python
+    It is a block of code which only runs when it is called.
+    Math => ceil, floor, factorial, sin, cos, tan, sqrt, pow, isqrt, sqrt
+    Functions like print(), len().
+    isinstance() function returns True if the specified object is of the specified type
+    zip() function returns a zip object, which is an iterator of tuples where
+    the first item in each passed iterator is paired together,
+    and then the second item in each passed iterator are paired together etc.
+    l1=[1,2,3], l2=[1,2,3], l3=zip(l1,l2),
+    print(l3)=>[(1,1),(2,2),(3,3)]
+
+7. Lambda Functions
+    It is a small anonymous function.
+    It can take any number of arguments, but can only have one expression.
+
+8. Iterators And Generators
+    An iterator is an object that contains a countable number of values.
+    An iterator is an object which implements the iterator protocol,
+    which consist of the methods __iter__() and __next__() .
+
+    Generators are used to create iterators, but with a different approach.
+    Generators are simple functions which return an iterable set of items, one at a time, in a special way.
+    If a function contains at least one yield statement (it may contain other YIELD or RETURN statements),
+    it becomes a generator function.
+    Both will return value but, return will terminate fun. entirely where,
+    YIELD statement return and pause the fun. save all its states.
+
+9. Exception Handling and Imports Libraries
+    TRY block lets you test a block of code for errors.
+    EXCEPT block lets you handle the error.
+    You can use the ELSE keyword to define a block of code to be executed if no errors were raised.
+    The FINALLY block lets you execute code, regardless of the result of the try and except blocks.
+    To THROW (or RAISE) an exception, use the raise keyword.
+    As a Python developer you can choose to throw an exception if a condition occurs.
+    EX:
+        try:
+            print(x)
+        except:
+            print("Something went wrong")
+        else:
+            print("Nothing went wrong")
+        finally:
+            print("The 'try except' is finished")
+
+        x = "hello"
+        if not type(x) is int:
+            raise TypeError("Only integers are allowed")
+
+10. File Methods
+    read()	Returns the file content
+    readable()	Returns whether the file stream can be read or not
+    readline()	Returns one line from the file
+    readlines()	Returns a list of lines from the file
+    write()	Writes the specified string to the file
+    writable()	Returns whether the file can be written to or not
+    writelines()	Writes a list of strings to the file
+    tell()	Returns the current file position
+    flush()	Flushes the internal buffer
+    close() close file
