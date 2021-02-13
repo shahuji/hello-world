@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "c:\\Users\\VISHAL SHAHU\\Django-workspace\\venv\\Scripts\\python.exe"
+    "python.pythonPath": "c:\\Users\\VISHAL SHAHU\\Django-workspace\\venv\\Scripts\\python.exe",
+    "python.terminal.activateEnvInCurrentTerminal": true,
 }
