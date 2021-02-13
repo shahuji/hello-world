@@ -1,0 +1,12 @@
+A boy is playing there.
+There is a playground.
+An aeroplane is in the sky.
+The sky is pink.
+Alphabets and numbers are allowed in the password.
+The function should display the output as 3
+A boy is playing there.
+there is a playground.
+An aeroplane is in the sky.
+The sky is pink.
+Alphabets and numbers are allowed in the password.
+the function should display the output as 3

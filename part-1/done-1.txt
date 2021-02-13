@@ -1,0 +1,25 @@
+1. Basic Arithmetic Operations
+2. Control and Conditional Structures
+3. Looping - For, While loops
+4. User Input
+    It is a inbuilt function to get input from user.(input())
+
+5. Strings
+    String Formatting:
+    The format() method allows you to format selected parts of a string.
+    By using curly brackets {} in the text.
+    reversing string without inbuilt fun by using [::-1].
+    string1 = 'abc'
+    string2 = string1[::-1] (self will store string in reverse order)
+    EX: (This will number with two decimals {:.2f})
+        quantity = 3
+        itemno = 567
+        price = 49
+        myorder = "I want {} pieces of item number {} for {:.2f} dollars."
+        print(myorder.format(quantity, itemno, price))
+
+6. Integers
+7. Floating Values
+8. Typecasting
+    To convert one data type into another.
+    int(), float(), set(), list(), dict(), tuple()
