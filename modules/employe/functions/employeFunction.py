@@ -9,7 +9,7 @@ desigination = (
 employeFormat = ['Id', 'name', 'phone', 'email', 'desigination', 'experience', 'address']
 employeName = dict()
 
-inputByUser = 0
+inputByUser = ""
 
 
 def viewCode():
@@ -29,11 +29,9 @@ def view():
     print("---> View Mode <---")
     if not employeName:
         print("First enter employs data....")
-        # empMenu.whileLoop()
+        addEmploye()
     else:
         viewCode()
-
-    # empMenu.whileLoop()
 
 
 def addEmploye():
@@ -54,104 +52,71 @@ def addEmploye():
                     print(jCount + 1, '. ', design, end='')
                     jCount += 1
                 print("\nEnter your choice:")
-                inputByUser = input("Enter student choice for {}\n".format(employe))
+                inputByUser = input("Enter employe choice for {}\n".format(employe))
                 while True:
-                    if not inputByUser.isdigit():
-                        print("Choice must be in digit.\n Enter student choice for {}\n".format(employe))
-                        inputByUser = input()
-                    elif len(inputByUser) > 1:
-                        print("Choice length is 1.\n Enter student choice for {}\n".format(employe))
-                        inputByUser = input()
-                    elif inputByUser == '':
-                        print("Choice must not empty.\n Enter student choice for {}\n".format(employe))
-                        inputByUser = input()
-                    else:
+                    if inputByUser.isdigit() and len(inputByUser) == 1:
                         tempEmploye[employe] = int(inputByUser) - 1
                         break
+                    else:
+                        print("Choice length is 1.\n Enter employe choice for {}\n".format(employe))
+                        inputByUser = input()
+                        
             # input validation for Name
             elif employe == 'name':
-                inputByUser = input("Enter student {}\n".format(employe))
+                inputByUser = input("Enter employe {}\n".format(employe))
                 while True:
-                    if inputByUser == "":
-                        print("Name must not empty")
-                        inputByUser = input()
-                    elif len(inputByUser) > 8:
-                        print("Name length between 2 to 8.\nEnter student {}".format(employe))
-                        inputByUser = input()
-                    elif len(inputByUser) <= 2:
-                        print("Name length must be more than 2.\nEnter student {}".format(employe))
-                        inputByUser = input()
-                    elif not inputByUser.isalpha():
-                        print("Name only contain characters.\nEnter student {}".format(employe))
-                        inputByUser = input()
-                    else:
+                    if inputByUser.isalpha() and len(inputByUser) <= 10 and len(inputByUser) >= 1:
                         tempEmploye[employe] = inputByUser.lower().capitalize()
                         break
+                    else:
+                        print("Name only contain characters.\nEnter employe {}".format(employe))
+                        inputByUser = input()
+                        
             # input validation for Phone
             elif employe == 'phone':
-                inputByUser = input("Enter student {}\n".format(employe))
+                inputByUser = input("Enter employe {}\n".format(employe))
                 while True:
-                    if not inputByUser.isdigit():
-                        print("Phone no must be in digit.\n Enter student {}".format(employe))
-                        inputByUser = input()
-                    elif len(inputByUser) > 10:
-                        print("Phone length between 8 to 10.\n Enter student {}".format(employe))
-                        inputByUser = input()
-                    elif len(inputByUser) <= 8:
-                        print("Phone length between 8 to 10.\n Enter student {}".format(employe))
-                        inputByUser = input()
-                    elif len(inputByUser) == 9:
-                        print("Phone length between 8 to 10.\n Enter student {}".format(employe))
-                        inputByUser = input()
-                    else:
+                    if inputByUser.isdigit() and len(inputByUser) == 10:
                         tempEmploye[employe] = inputByUser
-                        break
+                        break   
+                    else:
+                        print("Phone no length 10.\n Enter employe {}".format(employe))
+                        inputByUser = input()
+
             # input validation for email
             elif employe == 'email':
                 regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
-                inputByUser = input("Enter student {}\n".format(employe))
+                inputByUser = input("Enter employe {}\n".format(employe))
                 while True:
-                    if inputByUser == '':
-                        print("Email must not empty.\n Enter student {}".format(employe))
-                        inputByUser = input()
-                    elif not re.search(regex, inputByUser):
-                        print("Not proper email format.\n Enter student {}".format(employe))
-                        inputByUser = input()
-                    else:
+                    if re.search(regex, inputByUser):
                         tempEmploye[employe] = inputByUser
                         break
+                    else:
+                        print("Not proper email format.\n Enter employe {}".format(employe))
+                        inputByUser = input()
+
             # input validation for experience
             elif employe == 'experience':
-                inputByUser = input("Enter student choice for {}\n".format(employe))
+                inputByUser = input("Enter employe choice for {}\n".format(employe))
                 while True:
-                    if inputByUser == '':
-                        print("Choice must be in digit.\n Enter student choice for {}".format(employe))
-                        inputByUser = input()
-                    elif not inputByUser.isdigit():
-                        print("Choice length is 1.\n Enter student choice for {}".format(employe))
-                        inputByUser = input()
-                    elif len(inputByUser) > 1:
-                        print("Choice must not empty.\n Enter student choice for {}".format(employe))
-                        inputByUser = input()
-                    else:
+                    if inputByUser.isdigit() and len(inputByUser) == 1:
                         tempEmploye[employe] = int(inputByUser)
                         break
+                    else:
+                        print("Choice must be in digit.\n Enter employe choice for {}".format(employe))
+                        inputByUser = input()
+                        
             # input validation for address
             elif employe == 'address':
-                inputByUser = input("Enter student {}\n".format(employe))
+                inputByUser = input("Enter employe {}\n".format(employe))
                 while True:
-                    if len(inputByUser) > 12:
-                        print("Address length between 5 to 12.\n enter student {}".format(employe))
-                        inputByUser = input()
-                    elif len(inputByUser) <= 5:
-                        print("Address length must be 5.\n enter student {}".format(employe))
-                        inputByUser = input()
-                    elif inputByUser == "":
-                        print("Address must not empty")
-                        inputByUser = input("Enter student {}".format(employe))
-                    else:
+                    if len(inputByUser) >= 5 and len(inputByUser) <= 12:
                         tempEmploye[employe] = inputByUser.lower().capitalize()
                         break
+                    else:
+                        print("Address length between 5 to 12.\n enter employe {}".format(employe))
+                        inputByUser = input()
+
     # Input end and below code is for viewing inserted student data
     i = 0
     for data in tempEmploye.values():
@@ -162,7 +127,6 @@ def addEmploye():
         i += 1
     employeName["employeId_" + str(count)] = tempEmploye
     count += 1
-    # empMenu.whileLoop()
 
 
 def updateEmploye():
@@ -201,7 +165,7 @@ def updateEmploye():
 
     if employeField == 'desigination':
         print("Old detail ({}) enter new detail:".format(
-            desigination[int(employeName["employeID_" + employeId][employeField])]))
+            desigination[int(employeName["employeId_" + employeId][employeField])]))
         jCount = 0
         for design in desigination:
             print(jCount + 1, '. ', design, end='')
@@ -209,11 +173,10 @@ def updateEmploye():
         print('')
         inputByUser = str(int(input())-1)
     else:
-        print(employeName["employeID_" + employeId][employeField])
-        print("Old detail ({}) enter new detail:".format(employeName["employeID_" + employeId][employeField]))
+        print(employeName["employeId_" + employeId][employeField])
+        print("Old detail ({}) enter new detail:".format(employeName["employeId_" + employeId][employeField]))
         inputByUser = input()
-    employeName["employeID_" + employeId][employeField] = inputByUser
-    # empMenu.whileLoop()
+    employeName["employeId_" + employeId][employeField] = inputByUser
 
 
 def deleteEmploye():
@@ -227,25 +190,22 @@ def deleteEmploye():
     while True:
         if employeId in {'n', 'N'}:
             break
-        elif not employeId.isdigit():
-            print("Enter correct no of student id.\n Enter student ID.")
-            employeId = input()
-        elif not int(employeId) in idSet:
+        elif employeId.isdigit() and int(employeId) in idSet:
+           break
+        else:
             print("Employe id not found try again.\n Enter student ID.")
             employeId = input()
-        else:
-            break
 
     i = 0
     for employe in employeFormat:
         print(employe, " ", end='')
     print('')
-    for data, value in employeName["employeID_" + employeId].items():
+    for data, value in employeName["employeId_" + employeId].items():
         if i == 4:
             print(data, ' : ', desigination[int(value)])
         else:
             print(data, ' : ', value)
         i += 1
     print("\n--> Employ -- DELETED <--")
-    del employeName["employeID_" + employeId]
-    # empMenu.whileLoop()
+    del employeName["employeId_" + employeId]
+
