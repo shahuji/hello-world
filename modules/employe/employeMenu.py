@@ -1,5 +1,6 @@
-from modules.employe.functions import employeFunction as empFun
 import sys as s
+from modules.employe.functions import employeFunction as empFun
+
 
 viewOptions = ['0. Exit ', '1. View ', '2. Add ', '3. Update ', '4. Delete ']
 

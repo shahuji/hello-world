@@ -41,13 +41,25 @@ def addStudent():
             print("Not proper email format.\n Enter student email")
             inputByUser = input()
 
+    # input validation for Phone
+
+    inputByUser = input("Enter student phone:\n")
+    while True:
+        if inputByUser.isdigit() and len(inputByUser) == 10:
+            tempStudent["phone"] = inputByUser
+            break
+        else:
+            print("Phone no length 10.\n Enter student phone:\n")
+            inputByUser = input()
+
     inputByUser = input("Enter student semester:\n")
     while True:
         if inputByUser.isdigit() and len(inputByUser) >= 1 and inputByUser <= "10":
             tempStudent["semester"] = int(inputByUser)
             break
         else:
-            print("Choice must be in digit and <= 10.\n Enter student choice for semester")
+            print(
+                "Choice must be in digit and <= 10.\n Enter student choice for semester")
             inputByUser = input()
 
     inputByUser = input("Enter student branch: \n")
@@ -206,7 +218,8 @@ def addSubjectData(student_id):
                 print(tempSubjectD)
             else:
                 print("without")
-                student_data["studentId_" + student_id]["subject"][count] = tempSubject
+                student_data["studentId_" +
+                             student_id]["subject"][count] = tempSubject
             tempSubject = dict()
             if count <= 4:
                 print("Want to add more subject results?\nEnter n for exit.")
@@ -283,7 +296,8 @@ def gettingIdForSubject():
     for check in student_data:
         if int(student_data[check]["enrollment"]) in studentHavingSubject:
             print("----------------------------------------")
-            print("Enrollment: ", student_data[check]["enrollment"], "  ", "Name: ", student_data[check]["name"])
+            print("Enrollment: ", student_data[check]["enrollment"],
+                  "  ", "Name: ", student_data[check]["name"])
             print("----------------------------------------")
     print("---> Select id you want to get result <---")
     print("All student ids: ")
@@ -302,12 +316,14 @@ def gettingIdForSubject():
 def viewStudentResult():
     student_id = gettingIdForSubject()
     studentResult = student_data["studentId_" + student_id]["subject"]
-    formatList = list(studentResult[list(studentResult.keys())[0]].keys())  # getting all fields name remain
+    # getting all fields name remain
+    formatList = list(studentResult[list(studentResult.keys())[0]].keys())
     # totalMarks = int()
     totalObtainMarks = 0
     for data in studentResult:
         # totalMarks = totalMarks + int(studentResult[data]["Marks"])
-        totalObtainMarks = totalObtainMarks + int(studentResult[int(data)]["Obtain Marks"])
+        totalObtainMarks = totalObtainMarks + \
+            int(studentResult[int(data)]["Obtain Marks"])
     studentPercentage = round(totalObtainMarks / len(studentResult.keys()), 2)
     totalMarks = 100*len(studentResult.keys())
     studentGrade = grade(studentPercentage)
@@ -327,7 +343,8 @@ def viewStudentResult():
     print(formatList[0], "------", formatList[1], "------", formatList[2])
     for data in studentResult:
         subjectValues = list(studentResult[data].values())
-        print(subjectValues[0], "------", subjectValues[1], "------", subjectValues[2])
+        print(subjectValues[0], "------",
+              subjectValues[1], "------", subjectValues[2])
     print("--------------------------------------------------")
     print("TOTAL------ {} ------- {} ----------------------".format(totalMarks, totalObtainMarks))
     print("Percentage: \"{}\"".format(studentPercentage))
@@ -338,12 +355,15 @@ def viewStudentResult():
 def updateAddedSubject():
     student_id = gettingIdForSubject()
     studentResult = student_data["studentId_" + student_id]["subject"]
-    formatList = list(studentResult[list(studentResult.keys())[0]].keys())  # getting all fields name
-    print("id", formatList[0], "------", formatList[1], "------", formatList[2])
+    formatList = list(studentResult[list(studentResult.keys())[
+                      0]].keys())  # getting all fields name
+    print("id", formatList[0], "------",
+          formatList[1], "------", formatList[2])
     # subjectKeys = list(studentResult.keys())
     for data in studentResult:
         subjectValues = list(studentResult[data].values())
-        print(data, subjectValues[0], "------", subjectValues[1], "------", subjectValues[2])
+        print(data, subjectValues[0], "------",
+              subjectValues[1], "------", subjectValues[2])
     subjectId = input()
     print("1. Change Subject Name    2. Change Subject Obtain Marks")
     inputChoice = input()
@@ -352,7 +372,8 @@ def updateAddedSubject():
         subjectName = subjectName.strip()
         while True:
             if len(subjectName) > 2 and subjectName.replace(" ", "").isalpha():
-                student_data["studentId_" + student_id]["subject"][int(subjectId)]["subject name"] = subjectName
+                student_data["studentId_" + student_id]["subject"][int(
+                    subjectId)]["subject name"] = subjectName
                 print("-----> Subject name changed <-----")
                 break
             else:
@@ -362,7 +383,8 @@ def updateAddedSubject():
         subjectObtainMark = input("Enter change marks obtain in subject: \n")
         while True:
             if subjectObtainMark.isdigit() and (0 <= int(subjectObtainMark) or int(subjectObtainMark) <= 100):
-                student_data["studentId_" + student_id]["subject"][int(subjectId)]["Obtain Marks"] = subjectObtainMark
+                student_data["studentId_" + student_id]["subject"][int(
+                    subjectId)]["Obtain Marks"] = subjectObtainMark
                 print("-----> Subject marks changed <-----")
                 break
             else:
@@ -373,11 +395,14 @@ def updateAddedSubject():
 def deleteSubject():
     student_id = gettingIdForSubject()
     studentResult = student_data["studentId_" + student_id]["subject"]
-    formatList = list(studentResult[list(studentResult.keys())[0]].keys())  # getting all fields name
-    print("id", formatList[0], "------", formatList[1], "------", formatList[2])
+    formatList = list(studentResult[list(studentResult.keys())[
+                      0]].keys())  # getting all fields name
+    print("id", formatList[0], "------",
+          formatList[1], "------", formatList[2])
     for data in studentResult:
         subjectValues = list(studentResult[data].values())
-        print(data, subjectValues[0], "------", subjectValues[1], "------", subjectValues[2])
+        print(data, subjectValues[0], "------",
+              subjectValues[1], "------", subjectValues[2])
     subjectId = input()
     while True:
         if int(subjectId) in list(studentResult.keys()):
@@ -385,4 +410,3 @@ def deleteSubject():
         else:
             subjectId = input("Subject Id is invalid...Reenter")
     del student_data["studentId_" + student_id]["subject"][int(subjectId)]
-
